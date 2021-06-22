@@ -9,9 +9,10 @@ import { VacdateDetailsComponent } from './vacdate-details/vacdate-details.compo
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { VacServiceService } from './shared/vac-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, AppRoutingModule ],
+  imports:      [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule ],
   declarations: [ AppComponent, VacdateListComponent, VacdateListItemComponent, VacdateDetailsComponent, HomeComponent ],
   providers: [VacServiceService],
   bootstrap:    [ AppComponent ]
