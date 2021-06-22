@@ -18,7 +18,8 @@ export class VacdateListComponent implements OnInit {
   constructor(private im: VacServiceService){ }
 
   ngOnInit() {
-    this.vacdates = this.im.getAll();
+    this.im.getAll().subscribe(res => this.vacdates = res);
+    //this.vacdates = this.im.getAll();
   }
 
   showDetails(vacdate: Vacdate) {

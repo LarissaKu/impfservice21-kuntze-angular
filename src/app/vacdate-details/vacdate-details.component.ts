@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VacServiceService } from '../shared/vac-service.service';
 import { Vacdate } from '../shared/vacdate';
+import { VacdateFactory } from '../shared/vacdate-factory';
 
 @Component({
   selector: 'im-vacdate-details',
@@ -9,18 +10,27 @@ import { Vacdate } from '../shared/vacdate';
   styles: []
 })
 export class VacdateDetailsComponent implements OnInit {
- // vacdate: Vacdate;
-  @Input() vacdate: Vacdate;
-  @Output() showListEvent= new EventEmitter<any>();
+  vacdate: Vacdate = VacdateFactory.empty();
+  //@Input() vacdate: Vacdate;
+  //@Output() showListEvent= new EventEmitter<any>();
 
-  constructor(private im: VacServiceService, private route: ActivatedRoute) {}
+  constructor(private im: VacServiceService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     const params = this.route.snapshot.params;
-    this.vacdate = this.im.getSingle(params['id']);
+    this.im.getSingle(params['id']).subscribe(vac => this.vacdate = vac);
   }
 
-  showVacdateList() {
+  /*showVacdateList() {
     this.showListEvent.emit();
+  }*/
+
+  removeVacdate() {
+    if (confirm('Impftermin wirklich löschen?')) {
+    this.im.remove(this.vacdate.id)
+    .subscribe(res => this.router.navigate(['../'], { relativeTo:
+    this.route }));
+    }
   }
+
 }

@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Vacdate } from './vacdate';
 import { Vacplace } from './vacplace';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+
 @Injectable()
 export class VacServiceService {
-vacdates: Vacdate[];
+  private api = 'https://impfservice21.s1810456017.student.kwmhgb.at/api';
+
+  /*vacdates: Vacdate[];
 constructor() {
   this.vacdates = [
     new Vacdate("1", new Date(2021,8,21), "12:15", "12:30", 15, "Moderna", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3"), 
@@ -12,13 +18,48 @@ constructor() {
     new Vacdate("2", new Date(2021,8,21), "12:40", "12:50", 2, "Pfizer", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3"), 
     [],
     )];
+}*/
 
-    
-/*new User(2, 1, "Max", "Zimmer", new Date('1958-03-18'), "7932 180358", "max@zimmer.at", "+43 660 4336862", 1, "$2y$10$G6Do2mjEFEy08p9KBZz/IeMjOs0UapX870aXP3kOuhbfgAzOt5bye", false, new Vacdate(1,new Date(2021,08,21), "12:15", "12:30", 15, "Moderna", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3")) */
+  constructor(private http: HttpClient) {}
 
-/* new User (3, 0, "Alex", "Schmidt", new Date(2001,07,13), "5411 130701", "alex@schmidt.at", "+43 664 3156843", 2, "$2y$10$sPyK0q/AvC/rjdyGMEDrjexWTaJaMRbt7mUx/UhG6S0gaeHbmj81K", false, new Vacdate(1,new Date(2021,08,21), "12:15", "12:30", 15, "Moderna", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3")*/
+  getAll(): Observable<Array<Vacdate>> {
+    return this.http
+      .get(`${this.api}/vacdates`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getSingle(id: string): Observable<Vacdate> {
+    return this.http
+      .get<Vacdate>(`${this.api}/vacdates/${id}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  create(vacdate: Vacdate): Observable<any> {
+    return this.http
+      .post(`${this.api}/vacdate`, vacdate)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+  update(vacdate: Vacdate): Observable<any> {
+    return this.http
+      .put(`${this.api}/vacdate/${vacdate.id}`, vacdate)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+  remove(id: string): Observable<any> {
+    return this.http
+      .delete(`${this.api}/vacdate/${id}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+  private errorHandler(error: Error | any): Observable<any> {
+    return throwError(error);
+  }
 }
-getAll(){
+
+/*getAll(){
 return this.vacdates;
 }
 
@@ -27,4 +68,4 @@ getSingle(id :
   Vacdate {
   return this.vacdates.find(vacdate => vacdate.id === id);
   }
-}
+}*/

@@ -9,7 +9,7 @@ export class VacdateFactory {
       '',
       0,
       '',
-      [{ id: 0, fedstate: '', zip: '', city: '', adress: '' }],
+      { id: 0, fedstate: '', zip: '', city: '', adress: '' },
       []
     );
   }
