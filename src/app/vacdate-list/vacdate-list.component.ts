@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Timestamp } from 'rxjs/internal/Rx';
 import { timestamp } from 'rxjs/operators';
 import { User, Vacdate, Vacplace } from '../../shared/vacdate';
@@ -9,7 +9,9 @@ import { User, Vacdate, Vacplace } from '../../shared/vacdate';
   styles: []
 })
 export class VacdateListComponent implements OnInit {
+//[x: string]: any;
   vacdates: Vacdate[];
+  @Output() showDetailsEvent = new EventEmitter<Vacdate>();
 
   ngOnInit() {
     this.vacdates = [
@@ -20,6 +22,10 @@ export class VacdateListComponent implements OnInit {
       [],
       )]
   }
+
+  showDetails(vacdate: Vacdate) {
+    this.showDetailsEvent.emit(vacdate);
+    }
 
 }
 

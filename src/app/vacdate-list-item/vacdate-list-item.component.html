@@ -2,12 +2,7 @@
   <h2>Impfung Nr. {{vacdate.id}}</h2>
 <p class="vacday"><strong>Datum:</strong> {{ vacdate.vacday | date:'longDate'}}</p>
 <p class="start"><strong>Zeit:</strong> {{ vacdate.start }} - {{ vacdate.end }} </p>
-<p class="vaccine"><strong>Impfstoff:</strong> {{ vacdate.vaccine }} </p>
-<p class="vacplace"><strong>Impfort:</strong> {{vacdate.vacplace_id.adress}}, {{vacdate.vacplace_id.zip}} {{vacdate.vacplace_id.city}} </p>
 
-<!--<span *ngFor="let vacplace of vacdate.vacplace; last as l">
-{{ vacplace.fedstate }} {{ vacplace.city }}<span *ngIf="!l">,
-</span>
-</span>-->
+<p class="vacplace"><strong>Impfort:</strong> {{vacdate.vacplace_id.city}} </p>
 
 </div>
