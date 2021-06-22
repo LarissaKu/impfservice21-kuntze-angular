@@ -8,7 +8,7 @@ const routes:Routes = [
   {path:'', redirectTo:'home',pathMatch:'full'},
   {path:'home', component: HomeComponent},
   {path:'vacdates', component: VacdateListComponent},
-  {path:'vacdate/:id', component: VacdateDetailsComponent},
+  {path:'vacdates/:id', component: VacdateDetailsComponent},
   /*{path:'admin', component:BookFormComponent, canActivate:[CanNavigateToAdminGuard]},
   {path:'admin/:isbn', component:BookFormComponent},
   {path:'login', component:LoginComponent}*/

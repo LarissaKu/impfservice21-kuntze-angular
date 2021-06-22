@@ -6,10 +6,10 @@ export class VacServiceService {
 vacdates: Vacdate[];
 constructor() {
   this.vacdates = [
-    new Vacdate(1, new Date(2021,8,21), "12:15", "12:30", 15, "Moderna", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3"), 
+    new Vacdate("1", new Date(2021,8,21), "12:15", "12:30", 15, "Moderna", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3"), 
     [],
     ),
-    new Vacdate(2, new Date(2021,8,21), "12:40", "12:50", 2, "Pfizer", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3"), 
+    new Vacdate("2", new Date(2021,8,21), "12:40", "12:50", 2, "Pfizer", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3"), 
     [],
     )];
 
@@ -21,4 +21,10 @@ constructor() {
 getAll(){
 return this.vacdates;
 }
+
+getSingle(id :
+  string) :
+  Vacdate {
+  return this.vacdates.find(vacdate => vacdate.id === id);
+  }
 }

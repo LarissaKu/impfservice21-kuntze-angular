@@ -6,7 +6,7 @@ export { User } from "./user";
 export class Vacdate {
 
   constructor(
-    public id: number,
+    public id: string,
     public vacday: Date,
     public start: string,
     public end: string,

@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { VacServiceService } from '../shared/vac-service.service';
 import { Vacdate } from '../shared/vacdate';
 
 @Component({
@@ -7,16 +9,18 @@ import { Vacdate } from '../shared/vacdate';
   styles: []
 })
 export class VacdateDetailsComponent implements OnInit {
+ // vacdate: Vacdate;
   @Input() vacdate: Vacdate;
   @Output() showListEvent= new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private im: VacServiceService, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    const params = this.route.snapshot.params;
+    this.vacdate = this.im.getSingle(params['id']);
   }
 
   showVacdateList() {
     this.showListEvent.emit();
-    }
-
+  }
 }

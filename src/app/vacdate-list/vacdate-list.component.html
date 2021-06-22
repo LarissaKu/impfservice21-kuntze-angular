@@ -1,9 +1,6 @@
 <h1>Impftermine Übersicht</h1>
 <div class="ui middle aligned selection divided list">
-<a *ngFor="let vacdate of vacdates" class="item im-vacdate-list-item" [vacdate]="vacdate" (click)="showDetails(vacdate)">
-<!--<img class="ui tiny image"
-*ngIf="book?.images"
-[src]="book?.images[0].url">-->
+<a *ngFor="let vacdate of vacdates" class="item im-vacdate-list-item" [vacdate]="vacdate" [routerLink]="vacdate.id">
 
 </a>
 </div>
