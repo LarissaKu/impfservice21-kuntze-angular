@@ -7,7 +7,7 @@ import { Vacdate } from '../shared/vacdate';
   styles: []
 })
 export class VacdateListItemComponent implements OnInit {
-  @Input() vacdate: Vacdate
+  @Input() vacdate: Vacdate;
   constructor() { }
 
   ngOnInit() {
