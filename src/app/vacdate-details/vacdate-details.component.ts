@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Vacdate } from '../../shared/vacdate';
+import { Vacdate } from '../shared/vacdate';
 
 @Component({
   selector: 'im-vacdate-details',

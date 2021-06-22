@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Vacdate } from '../../shared/vacdate';
+import { Vacdate } from '../shared/vacdate';
 
 @Component({
   selector: 'a.im-vacdate-list-item',
