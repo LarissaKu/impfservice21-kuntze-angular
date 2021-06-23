@@ -11,11 +11,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { VacServiceService } from './shared/vac-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { VacFormComponentComponent } from './vac-form-component/vac-form-component.component';
+import { VacFormComponent } from './vac-form/vac-form.component';
+import { VacRegistrationService } from './shared/vac-registration.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, VacdateListComponent, VacdateListItemComponent, VacdateDetailsComponent, HomeComponent, LoginComponent ],
-  providers: [VacServiceService],
+  declarations: [ AppComponent, VacdateListComponent, VacdateListItemComponent, VacdateDetailsComponent, HomeComponent, LoginComponent, VacFormComponentComponent, VacFormComponent ],
+  providers: [VacServiceService, VacRegistrationService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

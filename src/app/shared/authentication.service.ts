@@ -35,6 +35,10 @@ export class AuthenticationService {
     localStorage.removeItem("id");
   }
 
+  public getCurrentUserId(){
+    return Number.parseInt(localStorage.getItem("id"));
+  }
+
   public isLoggedIn(){
     if(localStorage.getItem("token")){
       let token = localStorage.getItem("token");
