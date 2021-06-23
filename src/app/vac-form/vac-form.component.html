@@ -10,55 +10,51 @@
     <!--<div class="form-field" [class.disabled]="isUpdatingVac">
       <label>Impfterminnummer:</label>
       <input type="number" formControlName="id" class="input-id">
-      <div *ngIf="errors.id" class="form-negative_message"> {{ errors.id }} </div>
+      <div *ngIf="errors.id" class="error_message"> {{ errors.id }} </div>
     </div>-->
 
     <div class="form-field">
       <label>Datum des Impftermins:</label>
       <input type="date" formControlName="vacday" class="input-vacday">
-      <div *ngIf="errors.vacday" class="form-negative_message">{{ errors.vacday }}</div>
+      <div *ngIf="errors.vacday" class="error_message">{{ errors.vacday }}</div>
     </div>
 
     <div class="form-field">
       <label>Startzeitpunkt des Impftermins:</label>
       <input formControlName="start" class="input-start">
-      <div *ngIf="errors.start" class="form-negative_message">{{ errors.start }}</div>
+      <div *ngIf="errors.start" class="error_message">{{ errors.start }}</div>
     </div>
 
     <div class="form-field">
       <label>Endzeitpunkt des Impftermins:</label>
       <input formControlName="end" class="input-end">
-      <div *ngIf="errors.end" class="form-negative_message">{{ errors.end }}</div>
+      <div *ngIf="errors.end" class="error_message">{{ errors.end }}</div>
     </div>
 
     <div class="form-field">
       <label>Maximale Anzahl an Teilnehmer*innen:</label>
       <input type="number" formControlName="maxpersons" class="input_max">
-      <div *ngIf="errors.maxpersons" class="form-negative_message">{{ errors.maxpersons }}</div>
+      <div *ngIf="errors.maxpersons" class="error_message">{{ errors.maxpersons }}</div>
     </div>
 
     <div class="form-field">
       <label>Impfstoff:</label>
       <input formControlName="vaccine" class="input-type">
-      <div *ngIf="errors.vaccine" class="form-negative_message">{{ errors.vaccine }}</div>
+      <div *ngIf="errors.vaccine" class="error_message">{{ errors.vaccine }}</div>
     </div>
 
     <div class="form-field">
       <label>Impfort:</label>
-      <!--<select formControlName="vacplace" class="select-vacplace">
+      <select formControlName="vacplace" class="select-vacplace">
         <option *ngFor="let vacplace of vacplaces" [value]="vacplace.id"
                 [selected]="vacplace.id == vacdate.vacplace.id">
           {{ vacplace.id }}, {{ vacplace.fedstate}}, {{ vacplace.city }},
           {{ vacplace.adress }}
         </option>
-      </select>-->
-      <input formControlName="city" class="input-type">
-      <div *ngIf="errors.city" class="form-negative_message">{{ errors.vaccine }}</div>
+      </select>
+       <div *ngIf="errors.vacplace" class="error_message">{{ errors.vacplace }}</div>
     </div>
-      <div class="form-field">
-      <label>Adresse:</label>
-      <div *ngIf="errors.vacplace" class="form-negative_message">{{ errors.vacplace }}</div>
-    </div>
+
     <div class="form-buttons">
       <a class="form-back_button" (click)="backToPage()" *ngIf="isUpdatingVac"> Zurück</a>
       <button type="submit" class="form-submit_button" [disabled]="vacForm.invalid">Weiter</button>
@@ -74,10 +70,6 @@
   </h1>
   <div class="summary-container">
     <table class="summary-table">
-      <tr>
-        <td>Impfnummer:</td>
-        <td>{{vacForm.value.id}}</td>
-      </tr>
       <tr>
         <td>Impfdatum:</td>
         <td>{{vacForm.value.vacday}}</td>
@@ -108,7 +100,7 @@
     </table>
   </div>
   <div class="summary-buttons">
-    <a class="summary-back_btn" (click)="back()"><< Zurück</a>
+    <button class="summary-back_btn" (click)="back()">Zurück</button>
     <button class="summary-save_btn" (click)="submitForm()">Speichern</button>
   </div>
 

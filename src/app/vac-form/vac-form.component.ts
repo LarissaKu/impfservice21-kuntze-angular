@@ -69,6 +69,8 @@ export class VacFormComponent implements OnInit {
       vacplace: [this.vacdate.vacplace.id, Validators.required]
     });
     this.vacForm.statusChanges.subscribe(() => this.updateErrorMessages());
+
+    this.vr.getAllPlaces().subscribe(res => this.vacplaces = res);
   }
 
   updateErrorMessages() {
@@ -96,8 +98,10 @@ export class VacFormComponent implements OnInit {
     );
     console.log(updatedVacdate);
 
-    this.vacdate.vacplace = this.vacForm.value.vacplace;
-    this.vacdate.users = this.vacdate.users;
+    updatedVacdate.vacplace = this.vacForm.value.vacplace;
+    updatedVacdate.users = this.vacdate.users;
+
+    console.log(updatedVacdate.vacplace);
 
     if (this.isUpdatingVac) {
       this.vr.update(updatedVacdate).subscribe(res => {

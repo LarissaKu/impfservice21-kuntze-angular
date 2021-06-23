@@ -29,6 +29,13 @@ constructor() {
       .pipe(catchError(this.errorHandler));
   }
 
+  getAllPlaces(): Observable<Array<Vacplace>> {
+    return this.http
+      .get(`${this.api}/vacplaces`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
   getSingle(id: string): Observable<Vacdate> {
     return this.http
       .get<Vacdate>(`${this.api}/vacdates/${id}`)

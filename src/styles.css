@@ -16,3 +16,7 @@ h2 {
 * {
   font-family: Lato;
 }
+
+.error_message{
+  color:coral;
+}
