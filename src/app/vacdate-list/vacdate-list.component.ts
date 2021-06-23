@@ -19,7 +19,6 @@ export class VacdateListComponent implements OnInit {
   ngOnInit() {
     this.im.getAll().subscribe(res => this.vacdates = res);
     //this.vacdates = this.im.getAll();
-    console.log(this.vacdates);
   }
 
   showDetails(vacdate: Vacdate) {
