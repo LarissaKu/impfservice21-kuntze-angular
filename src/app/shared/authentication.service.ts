@@ -6,6 +6,7 @@ interface Token{
   exp:number;
   user:{
     id:string;
+    admin:string;
   }
 }
 
@@ -27,6 +28,7 @@ export class AuthenticationService {
     localStorage.setItem("token", token);
     const decodedToken = jwt_decode(token) as Token;
     localStorage.setItem("id", decodedToken.user.id);
+    localStorage.setItem("admin", decodedToken.user.admin);
   }
 
   public logout(){
@@ -54,6 +56,11 @@ export class AuthenticationService {
       return true;
     }
     return false;
+  }
+
+  public isAdmin(){
+    console.log(localStorage.getItem("admin"));
+    return localStorage.getItem("admin");
   }
 
   isLoggedOut(){

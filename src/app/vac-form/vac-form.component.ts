@@ -66,7 +66,7 @@ export class VacFormComponent implements OnInit {
         [Validators.required, Validators.max(35), Validators.min(2)]
       ],
       vaccine: [this.vacdate.vaccine, Validators.required],
-      vacplace: [this.vacdate.vacplace_id.id, Validators.required]
+      vacplace: [this.vacdate.vacplace_id, Validators.required]
     });
     this.vacForm.statusChanges.subscribe(() => this.updateErrorMessages());
 

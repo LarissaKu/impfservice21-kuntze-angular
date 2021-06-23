@@ -36,9 +36,17 @@ constructor() {
       .pipe(catchError(this.errorHandler));
   }
 
-  getSingle(id: string): Observable<Vacdate> {
+  getSingle(id: number): Observable<Vacdate> {
+    console.log(id);
     return this.http
       .get<Vacdate>(`${this.api}/vacdates/${id}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getSinglePlace(id: number): Observable<Vacplace> {
+    return this.http
+      .get<Vacplace>(`${this.api}/vacplaces/${id}`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
