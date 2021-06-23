@@ -31,10 +31,6 @@ export class VacRegistrationService {
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
-  /*getCurrentUser(id:number): Observable<User>{
-    return this.http.get(`${this.api}/user`)
-  }*/
-
   create(vacdate: Vacdate): Observable<any> {
     return this.http
       .post(`${this.api}/vacdate`, vacdate)
@@ -53,6 +49,12 @@ export class VacRegistrationService {
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
+
+  getAllPlaces():Observable<any>{
+    return this.http.get(`${this.api}/vaccinationplaces`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }

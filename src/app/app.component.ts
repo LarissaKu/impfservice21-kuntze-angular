@@ -1,4 +1,5 @@
 import { Component, VERSION } from '@angular/core';
+import { AuthenticationService } from './shared/authentication.service';
 import { Vacdate } from './shared/vacdate';
 
 
@@ -18,10 +19,12 @@ import { Vacdate } from './shared/vacdate';
 export class AppComponent  {
   listOn = true;
  detailsOn = false;
+ 
+ constructor(private authService:AuthenticationService){}
 
- vacdate:Vacdate;
+ /*vacdate:Vacdate;
 
- showList() {
+  showList() {
   this.listOn = true;
   this.detailsOn = false;
   }
@@ -29,5 +32,17 @@ export class AppComponent  {
   this.vacdate = vacdate;
   this.listOn = false;
   this.detailsOn = true;
+  }*/
+
+  isLoggedIn(){
+    return this.authService.isLoggedIn();
+  }
+
+  getLoginLabel(){
+    if(this.isLoggedIn()){
+      return "Logout";
+    } else {
+      return "Login";
+    }
   }
 }

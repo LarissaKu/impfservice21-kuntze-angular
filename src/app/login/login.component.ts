@@ -6,6 +6,10 @@ import { User } from '../shared/user';
 import { VacRegistrationService } from '../shared/vac-registration.service';
 import { Vacplace } from '../shared/vacplace';
 
+interface Response {
+  access_token: string;
+}
+
 @Component({
   selector: 'im-login',
   templateUrl: './login.component.html',
