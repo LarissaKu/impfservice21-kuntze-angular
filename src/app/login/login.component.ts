@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../shared/authentication.service';
 import { User } from '../shared/user';
-import { VacRegistrationService } from '../shared/vac-registration.service';
+import { VacServiceService } from '../shared/vac-service.service';
 import { Vacplace } from '../shared/vacplace';
 
 interface Response {
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   vacplace:Vacplace;
 
   constructor(private fb:FormBuilder, private router:Router, private authService:AuthenticationService,
-    private vr: VacRegistrationService) { }
+    private vr: VacServiceService) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({

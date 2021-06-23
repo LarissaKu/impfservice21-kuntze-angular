@@ -21,7 +21,7 @@ import { JwtInterceptorService } from './shared/jwt.interceptor.service';
   imports:      [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule ],
   declarations: [ AppComponent, VacdateListComponent, VacdateListItemComponent, VacdateDetailsComponent, HomeComponent, LoginComponent, VacFormComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [VacServiceService, VacRegistrationService, AuthenticationService,
+  providers: [VacServiceService, AuthenticationService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

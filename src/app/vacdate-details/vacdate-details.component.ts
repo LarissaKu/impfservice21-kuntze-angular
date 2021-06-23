@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../shared/authentication.service';
 import { VacServiceService } from '../shared/vac-service.service';
 import { Vacdate } from '../shared/vacdate';
 import { VacdateFactory } from '../shared/vacdate-factory';
@@ -14,7 +15,7 @@ export class VacdateDetailsComponent implements OnInit {
   //@Input() vacdate: Vacdate;
   //@Output() showListEvent= new EventEmitter<any>();
 
-  constructor(private im: VacServiceService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private im: VacServiceService, private router: Router, private route: ActivatedRoute, public authService:AuthenticationService) {}
 
   ngOnInit() {
     const params = this.route.snapshot.params;

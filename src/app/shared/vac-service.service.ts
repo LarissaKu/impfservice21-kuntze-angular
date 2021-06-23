@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Vacdate } from './vacdate';
+import { User, Vacdate } from './vacdate';
 import { Vacplace } from './vacplace';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -34,6 +34,11 @@ constructor() {
       .get<Vacdate>(`${this.api}/vacdates/${id}`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
+  }
+
+  getUser(id : number) : Observable<User> {
+    return this.http.get(`${this.api}/user/${id}`)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 
   create(vacdate: Vacdate): Observable<any> {

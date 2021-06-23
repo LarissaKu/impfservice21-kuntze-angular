@@ -12,3 +12,7 @@ h2 {
 .space{
   padding: 2em;
 }
+
+* {
+  font-family: Lato;
+}
