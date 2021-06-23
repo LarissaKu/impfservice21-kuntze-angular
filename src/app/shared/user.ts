@@ -14,6 +14,6 @@ export class User {
     public dose: number,
     private password: string,
     public admin: boolean,
-    public vacdates?: Vacdate[]) {
+    public vacdate_id?: Vacdate[]) {
   }
 }

@@ -6,6 +6,7 @@
   <form class="form-form" [formGroup]="vacForm"
         (ngSubmit)="nextStep()">
     <input type="hidden" name="id">
+    <!--TODO id anhängen - auto increment?-->
 
     <!--<div class="form-field" [class.disabled]="isUpdatingVac">
       <label>Impfterminnummer:</label>
@@ -46,10 +47,10 @@
     <div class="form-field">
       <label>Impfort:</label>
       <select formControlName="vacplace" class="select-vacplace">
-        <option *ngFor="let vacplace of vacplaces" [value]="vacplace.id"
-                [selected]="vacplace.id == vacdate.vacplace.id">
-          {{ vacplace.id }}, {{ vacplace.fedstate}}, {{ vacplace.city }},
-          {{ vacplace.adress }}
+        <option *ngFor="let vacplace_id of vacplaces" [value]="vacplace_id.id"
+                [selected]="vacplace_id.id == vacdate.vacplace_id.id">
+          {{ vacplace_id.id }}, {{ vacplace_id.fedstate}}, {{ vacplace_id.city }},
+          {{ vacplace_id.adress }}
         </option>
       </select>
        <div *ngIf="errors.vacplace" class="error_message">{{ errors.vacplace }}</div>

@@ -66,7 +66,7 @@ export class VacFormComponent implements OnInit {
         [Validators.required, Validators.max(35), Validators.min(2)]
       ],
       vaccine: [this.vacdate.vaccine, Validators.required],
-      vacplace: [this.vacdate.vacplace.id, Validators.required]
+      vacplace: [this.vacdate.vacplace_id.id, Validators.required]
     });
     this.vacForm.statusChanges.subscribe(() => this.updateErrorMessages());
 
@@ -98,10 +98,10 @@ export class VacFormComponent implements OnInit {
     );
     console.log(updatedVacdate);
 
-    updatedVacdate.vacplace = this.vacForm.value.vacplace;
-    updatedVacdate.users = this.vacdate.users;
+    updatedVacdate.vacplace_id = this.vacForm.value.vacplace;
+    updatedVacdate.user_id = this.vacdate.user_id;
 
-    console.log(updatedVacdate.vacplace);
+    console.log(updatedVacdate.vacplace_id);
 
     if (this.isUpdatingVac) {
       this.vr.update(updatedVacdate).subscribe(res => {
@@ -131,7 +131,7 @@ export class VacFormComponent implements OnInit {
   }
 
   back() {
-    this.vacdate.vacplace.id = this.vacForm.value.vacplace;
+    this.vacdate.vacplace_id.id = this.vacForm.value.vacplace;
     this.showSummary = false;
   }
 }

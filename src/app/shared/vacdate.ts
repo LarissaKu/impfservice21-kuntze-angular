@@ -12,8 +12,8 @@ export class Vacdate {
     public end: string,
     public maxpersons: number,
     public vaccine: string,
-    public vacplace: Vacplace,
-    public users?: User[]
+    public vacplace_id: Vacplace,
+    public user_id?: User[]
   ) {
   }
 }

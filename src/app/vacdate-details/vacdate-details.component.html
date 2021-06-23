@@ -8,8 +8,8 @@
   </p>
   <p class="vaccine"><strong>Impfstoff:</strong> {{ vacdate.vaccine }}</p>
   <p class="vacplace">
-    <strong>Impfort:</strong> {{vacdate.vacplace.adress}},
-    {{vacdate.vacplace.zip}} {{vacdate.vacplace.city}}
+    <strong>Impfort:</strong> {{vacdate.vacplace_id.adress}},
+    {{vacdate.vacplace_id.zip}} {{vacdate.vacplace_id.city}}
   </p>
 
   <button class="ui red button" [routerLink]="'../../vacdates'">
