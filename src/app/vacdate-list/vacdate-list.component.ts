@@ -11,7 +11,6 @@ import { Vacdate } from '../shared/vacdate';
   styles: []
 })
 export class VacdateListComponent implements OnInit {
-//[x: string]: any;
   vacdates: Vacdate[];
   @Output() showDetailsEvent = new EventEmitter<Vacdate>();
 
@@ -20,6 +19,7 @@ export class VacdateListComponent implements OnInit {
   ngOnInit() {
     this.im.getAll().subscribe(res => this.vacdates = res);
     //this.vacdates = this.im.getAll();
+    console.log(this.vacdates);
   }
 
   showDetails(vacdate: Vacdate) {

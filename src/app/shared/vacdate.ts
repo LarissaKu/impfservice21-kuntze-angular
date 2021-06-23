@@ -12,7 +12,7 @@ export class Vacdate {
     public end: string,
     public maxpersons: number,
     public vaccine: string,
-    public vacplace_id: Vacplace,
+    public vacplace: Vacplace,
     public users?: User[]
   ) {
   }

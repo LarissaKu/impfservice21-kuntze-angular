@@ -32,9 +32,9 @@ import { JwtInterceptorService } from './shared/jwt.interceptor.service';
     useClass: JwtInterceptorService,
     multi: true
   },
-  {
+  /*{
     provide: LOCALE_ID, useValue:'de'
-  }
+  }*/
   ]
 })
 export class AppModule { }

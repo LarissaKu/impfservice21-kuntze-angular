@@ -5,8 +5,8 @@ import { Vacdate } from '../shared/vacdate';
 
 @Component({
   selector: 'im-home',
-  //templateUrl: './home.component.html',
-  template: `
+  templateUrl: './home.component.html',
+  /*template: `
     <div class="ui container">
       <h1>Home</h1>
       <p>Das ist der Kuntze Impfservice.</p>
@@ -15,7 +15,7 @@ import { Vacdate } from '../shared/vacdate';
         <i class="right arrow icon"></i>
       </a>
     </div>
-  `,
+  `,*/
   styles: []
 })
 export class HomeComponent {

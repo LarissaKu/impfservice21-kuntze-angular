@@ -1,9 +1,11 @@
-<h1>Impftermine Übersicht</h1>
-<div class="ui middle aligned selection divided list">
+<div class= "space">
+  <h1>Impftermine Übersicht</h1>
+<div class="ui middle aligned selection divided list space">
 <a *ngFor="let vacdate of vacdates" class="item im-vacdate-list-item" [vacdate]="vacdate" [routerLink]="vacdate.id">
 </a>
 <div *ngIf="!vacdates" class="ui active dimmer">
 <div class="ui large text loader">Daten werden geladen...</div>
 </div>
 <p *ngIf="vacdates && !vacdates.length">Es wurden noch keine Impftermine eingetragen.</p>
+</div>
 </div>
