@@ -47,18 +47,26 @@ constructor() {
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
+  
   update(vacdate: Vacdate): Observable<any> {
     return this.http
       .put(`${this.api}/vacdate/${vacdate.id}`, vacdate)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
+  
   remove(id: string): Observable<any> {
     return this.http
       .delete(`${this.api}/vacdate/${id}`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
+
+  check(id:number): Observable<Boolean>{
+    return this.http.get<Boolean>(`${this.api}/vacdates/checkId/${id}`).pipe(retry(3))
+    .pipe(catchError(this.errorHandler));
+  }
+
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
   }
