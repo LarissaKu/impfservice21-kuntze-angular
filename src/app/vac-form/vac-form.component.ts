@@ -18,7 +18,7 @@ export class VacFormComponent implements OnInit {
   vacplaces: Vacplace[];
   errors: { [key: string]: string } = {};
   isUpdatingVac = false;
-  //showSummary = false;
+  showSummary = false;
 
   constructor(
     private fb: FormBuilder,
@@ -96,7 +96,7 @@ export class VacFormComponent implements OnInit {
     );
     console.log(updatedVacdate);
 
-    this.vacdate.vacplace = this.vacForm.value.vaccination_place;
+    this.vacdate.vacplace = this.vacForm.value.vacplace;
     this.vacdate.users = this.vacdate.users;
 
     if (this.isUpdatingVac) {
@@ -113,20 +113,21 @@ export class VacFormComponent implements OnInit {
       });
     }
   }
-}
 
-/*
+  nextStep() {
+    this.showSummary = true;
+  }
 
   backToPage() {
-    if(this.isUpdatingVaccination) {
-      this.router.navigateByUrl("/vaccinations/"+this.vaccination.vaccination_nr);
+    if(this.isUpdatingVac) {
+      this.router.navigateByUrl("/vacdates/"+this.vacdate.id);
     } else {
-      this.router.navigateByUrl("/vaccinations");
+      this.router.navigateByUrl("/vacdates");
     }
   }
-  
 
   back() {
-    this.vaccination.vaccination_place.vaccination_place_nr = this.vaccinationForm.value.vaccination_place;
+    this.vacdate.vacplace.id = this.vacForm.value.vacplace;
     this.showSummary = false;
-  }*/
+  }
+}
