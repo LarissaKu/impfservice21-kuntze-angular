@@ -1,8 +1,28 @@
+<div>
+  <h1 class="centered">
+    <img
+      class="logo"
+      alt="durchgestrichene Viruszellen"
+      src="../../images/flagge.png"
+    >
+    Kuntze Impfservice21
+  </h1>
+</div>
 <div class="ui {{isLoggedIn() &&isAdmin() ?'four':'three'}} item tabs menu">
   <a routerLink="home" routerLinkActive="active" class="item">Home</a>
-  <a routerLink="vacdates" routerLinkActive="active" class="item">Impftermine</a>
+  <a routerLink="vacdates" routerLinkActive="active" class="item"
+    >Impftermine</a
+  >
   <!--<a routerLink="vacplace" routerLinkActive="active" class="item">Impforte</a>-->
-  <a *ngIf ="isLoggedIn() && isAdmin()" routerLink="admin" routerLinkActive="active" class="item">Adminbereich</a>
-  <a routerLink="login" routerLinkActive="active" class="item">{{getLoginLabel()}}</a>
+  <a
+    *ngIf="isLoggedIn() && isAdmin()"
+    routerLink="admin"
+    routerLinkActive="active"
+    class="item"
+    >Adminbereich</a
+  >
+  <a routerLink="login" routerLinkActive="active" class="item"
+    >{{getLoginLabel()}}</a
+  >
 </div>
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>

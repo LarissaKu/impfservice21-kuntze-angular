@@ -8,6 +8,14 @@ h2 {
   color: rgb(184, 2, 2);
 }
 
+.centered{
+  display: flex;
+  justify-content: center;
+  color: rgb(184, 2, 2);
+  background-color: rgba(184, 2, 2, 0.1);;
+  padding: 1em;
+}
+
 
 .space{
   padding: 2em;
