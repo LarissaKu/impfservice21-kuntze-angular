@@ -6,13 +6,6 @@
   <form class="form-form" [formGroup]="vacForm"
         (ngSubmit)="nextStep()">
     <input type="hidden" name="id">
-    <!--TODO id anhängen - auto increment?-->
-
-    <!--<div class="form-field" [class.disabled]="isUpdatingVac">
-      <label>Impfterminnummer:</label>
-      <input type="number" formControlName="id" class="input-id">
-      <div *ngIf="errors.id" class="error_message"> {{ errors.id }} </div>
-    </div>-->
 
     <div class="form-field">
       <label>Datum des Impftermins:</label>

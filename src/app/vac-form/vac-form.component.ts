@@ -108,10 +108,6 @@ export class VacFormComponent implements OnInit {
     else{
       updatedVacdate.users = [];
     }
-    //TODO
-    //console.log("user"+this.vacdate.user_id);
-
-    //console.log(updatedVacdate);
 
     if (this.isUpdatingVac) {
       this.vr.update(updatedVacdate).subscribe(res => {
