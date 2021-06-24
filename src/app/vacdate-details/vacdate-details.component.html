@@ -8,7 +8,7 @@
   </p>
   <p class="vaccine"><strong>Impfstoff:</strong> {{ vacdate.vaccine }}</p>
   <p class="vacplace"><strong>Impfort:</strong>
-   {{vacdate.vacplace.city}}, {{vacdate.vacplace.adress}}, {{vacdate.vacplace.zip}}
+   {{vacdate.vacplace.adress}},  {{vacdate.vacplace.zip}} {{vacdate.vacplace.city}}
 
   <!--<p class="vacplace" *ngFor="let vacpc of vacplace">
     <span>{{vacpc.id}}, {{vacdate.vacplace_id}} ,{{vacpc.adress}}</span>
@@ -17,7 +17,7 @@
     </span>-->
   </p>
 
-  <button class="ui red button" [routerLink]="'../../vacdates'">
+  <button class="ui blue button" [routerLink]="'../../vacdates'">
     Zurück zur Impftermin Übersicht
   </button>
 
@@ -29,12 +29,12 @@
     Impftermin buchen
   </button>
 
-  <button *ngIf="authService.isLoggedIn() && authService.isAdmin()" class="ui tiny red labeled icon button"
+  <button *ngIf="authService.isAdmin()" class="ui tiny red labeled icon button"
 (click)="removeVacdate()">
 <i class="remove icon"></i> Impftermin löschen
 </button>
 
-<a *ngIf="authService.isLoggedIn()" class="ui tiny yellow labeled icon button" [routerLink]="['../../admin', vacdate?.id]">
+<a *ngIf="authService.isAdmin()" class="ui tiny yellow labeled icon button" [routerLink]="['../../admin', vacdate?.id]">
 <i class="write icon"></i> Impftermin bearbeiten
 </a>
 </div>

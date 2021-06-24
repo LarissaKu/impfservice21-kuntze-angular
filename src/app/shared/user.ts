@@ -11,7 +11,12 @@ export class User {
     public svnr: string,
     public email: string,
     public phone: string,
-    public dose: number,
+    public fedstate: string,
+    public zip: string,
+    public city: string,
+    public adress: string,
+    public vaccinated: boolean,
+    public registered: boolean,
     private password: string,
     public admin: boolean,
     public vacdate_id?: Vacdate[]) {

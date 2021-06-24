@@ -7,6 +7,8 @@
 
   <strong>Happy impfen</strong><br><br>
 
+  <div *ngIf="authService.alreadyRegistered()">Sie sind bereits zu einer Impfung angemeldet.<br><br></div>
+
   <a routerLink="../vacdates" class="ui red button">Impftermine ansehen</a>
 
   <!--<bs-search class="column" (vacdateSelected)="vacdateSelected($event)"></bs-search>-->

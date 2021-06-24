@@ -9,7 +9,7 @@ import { VacdateListComponent } from "./vacdate-list/vacdate-list.component";
 const routes:Routes = [
   {path:'', redirectTo:'home',pathMatch:'full'},
   {path:'home', component: HomeComponent},
-  //{path: 'vacdate/registration/:id', component: }
+  //{path: 'vacdate/registration/:id', component: },
   {path:'vacdates', component: VacdateListComponent},
   {path:'vacdates/:id', component: VacdateDetailsComponent},
   {path:'admin', component:VacFormComponent},

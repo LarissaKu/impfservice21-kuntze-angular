@@ -4,21 +4,11 @@ import { Vacplace } from './vacplace';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { VacdateFactory } from './vacdate-factory';
 
 @Injectable()
 export class VacServiceService {
   private api = 'https://impfservice21.s1810456017.student.kwmhgb.at/api';
-
-  /*vacdates: Vacdate[];
-constructor() {
-  this.vacdates = [
-    new Vacdate("1", new Date(2021,8,21), "12:15", "12:30", 15, "Moderna", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3"), 
-    [],
-    ),
-    new Vacdate("2", new Date(2021,8,21), "12:40", "12:50", 2, "Pfizer", new Vacplace (2, "Burgenland", "4530", "Eisenstadt", "Winterstrasse 3"), 
-    [],
-    )];
-}*/
 
   constructor(private http: HttpClient) {}
 
@@ -81,6 +71,20 @@ constructor() {
     return this.http.get<Boolean>(`${this.api}/vacdates/checkId/${id}`).pipe(retry(3))
     .pipe(catchError(this.errorHandler));
   }
+
+  editToVaccinated(user: User): Observable<any> {
+    return this.http.put(`${this.api}/vacdate/user/${user.id}`, user)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }
+
+  /*registerUser(vacdate: VacdateFactory,  userid: number): Observable<any> {
+    let user = '{ "id": '+userid+'}';
+    let userJson = JSON.parse(user);
+    return this.http.put(`${this.api}/vaccination/registration/${vacdate.id}`, userJson)
+      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  }*/
+
+
 
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
