@@ -21,9 +21,15 @@ export class VacdateDetailsComponent implements OnInit {
 
   ngOnInit() {
     const params = this.route.snapshot.params;
-    this.im.getSingle(params['id']).subscribe(vac => this.vacdate = vac);
+    this.im.getSingle(params['id']).subscribe(vac =>{
+      this.vacdate = vac;
+      console.log(this.vacdate.vacplace_id)
+    }) 
 
-    this.im.getAllPlaces().subscribe(vac => this.vacplace = vac);
+    this.im.getSinglePlace(this.vacdate.vacplace_id).subscribe(
+      vac => {
+        console.log(vac);
+    })  
   }
 
   /*showVacdateList() {

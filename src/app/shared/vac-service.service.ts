@@ -44,9 +44,9 @@ constructor() {
       .pipe(catchError(this.errorHandler));
   }
 
-  getSinglePlace(id: number): Observable<Vacplace> {
+  getSinglePlace(id: number): Observable<any> {
     return this.http
-      .get<Vacplace>(`${this.api}/vacplaces/${id}`)
+      .get(`${this.api}/vacplaces/${id}`)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }

@@ -47,10 +47,10 @@
     <div class="form-field">
       <label>Impfort:</label>
       <select formControlName="vacplace" class="select-vacplace">
-        <option *ngFor="let vacplace_id of vacplaces" [value]="vacplace_id.id"
-                [selected]="vacplace_id.id == vacdate.vacplace_id.id">
-          {{ vacplace_id.id }}, {{ vacplace_id.fedstate}}, {{ vacplace_id.city }},
-          {{ vacplace_id.adress }}
+        <option *ngFor="let vacplace of vacplaces" [value]="vacplace.id"
+                [selected]="vacplace == vacdate.vacplace">
+          {{ vacplace.id }}, {{ vacplace.zip }}, {{ vacplace.city }}, 
+          {{ vacplace.adress }}
         </option>
       </select>
        <div *ngIf="errors.vacplace" class="error_message">{{ errors.vacplace }}</div>
@@ -91,11 +91,12 @@
         <td>Impfstoff:</td>
         <td>{{vacForm.value.vaccine}}</td>
       </tr>
-      <tr *ngFor="let place of vacplaces" id="summary-vacplace">
+      <!--<tr *ngFor="let place of vacplaces" id="summary-vacplace">
         <td *ngIf="place.id == vacForm.value.vacpc">Impfort:</td>
-        <td *ngIf="place.id == vacForm.value.vacplace">
-          {{ place.id }}, {{ place.fedstate }}, {{ place.city }},
-          {{ place.adress }}
+        <td *ngIf="place.id == vacForm.value.vacplace">-->
+          <tr>
+            <td>Impfort: </td>
+          <td>{{ vacForm.value.vacplace.id }}
         </td>
       </tr>
     </table>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { isArray } from 'rxjs/internal/util/isArray';
 import { VacServiceService } from '../shared/vac-service.service';
 import { VacValidators } from '../shared/vac-validators';
 import { Vacdate, Vacplace } from '../shared/vacdate';
@@ -97,11 +98,20 @@ export class VacFormComponent implements OnInit {
       this.vacForm.value
     );
     console.log(updatedVacdate);
+    console.log("bääääh"+this.vacForm.value.vacplace);
 
     updatedVacdate.vacplace_id = this.vacForm.value.vacplace;
-    updatedVacdate.user_id = this.vacdate.user_id;
 
-    console.log(updatedVacdate.vacplace_id);
+    if(Array.isArray(this.vacdate.user_id)){
+      updatedVacdate.user_id = this.vacdate.user_id;
+    }
+    else{
+      updatedVacdate.users = [];
+    }
+    //TODO
+    console.log("user"+this.vacdate.user_id);
+
+    console.log(updatedVacdate);
 
     if (this.isUpdatingVac) {
       this.vr.update(updatedVacdate).subscribe(res => {
@@ -131,7 +141,7 @@ export class VacFormComponent implements OnInit {
   }
 
   back() {
-    this.vacdate.vacplace_id.id = this.vacForm.value.vacplace;
+    this.vacdate.vacplace_id = this.vacForm.value.vacplace;
     this.showSummary = false;
   }
 }
