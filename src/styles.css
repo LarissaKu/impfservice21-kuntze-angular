@@ -8,56 +8,73 @@ h2 {
   color: rgb(184, 2, 2);
 }
 
-.centered{
+.centered {
   display: flex;
   justify-content: center;
   color: rgb(184, 2, 2);
-  background-color: rgba(184, 2, 2, 0.1);;
+  /*background-color: rgba(184, 2, 2, 0.1);;*/
   padding: 1em;
+  border-bottom: 5px solid rgb(184, 2, 2);
 }
 
-
-.space{
+.space {
   padding: 2em;
+  position: relative;
+  text-align: center;
 }
 
 * {
   font-family: Lato;
 }
 
-.error_message{
-  color:coral;
+.error_message {
+  color: coral;
 }
 
-label{
+label {
   margin: 2em;
 }
 
-input, .select-vacplace, button{
-  margin: 0.5em!important;
-  padding:0.3em;
-  border:none;
+input,
+.select-vacplace,
+button {
+  margin: 0.5em !important;
+  padding: 0.3em;
+  border: none;
   background-color: lightgray;
   border-radius: 0.4em;
 }
 
-.details-all_users{
+.details-all_users {
   display: flex;
   float: left;
 }
 
-.details-users_user{
+.details-users_user {
   margin-right: 3em;
 }
 
-.vaccinated, .alreadyReg{
+.vaccinated,
+.alreadyReg {
   color: green;
 }
 
-.not_vaccinated{
+.not_vaccinated {
   color: coral;
 }
 
-.novacdatefree{
+.novacdatefree {
   color: gray;
+}
+
+.loginF {
+  margin-left: 7em;
+  margin-right: 7em;
+}
+.email, .password{
+text-align: center;
+}
+
+.summary-table{
+  display: inline-block;
 }

@@ -64,14 +64,14 @@
   </form>
 </div>
 
-<div *ngIf="showSummary" class="summary">
+<div *ngIf="showSummary" class="summary space">
   <h1>Zusammenfassung des
     <span *ngIf="isUpdatingVac"> bearbeiteten </span>
     <span *ngIf="!isUpdatingVac"> neu erstellten </span>
     Impftermins
   </h1>
   <div class="summary-container">
-    <table class="summary-table">
+    <table class="summary-table space">
       <tr>
         <td>Impfdatum:</td>
         <td>{{vacForm.value.vacday}}</td>

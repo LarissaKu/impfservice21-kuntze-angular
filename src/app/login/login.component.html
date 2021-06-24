@@ -1,10 +1,10 @@
 <div class= "space">
 <div *ngIf="!isLoggedIn()">
  <h1>Login</h1>
- <form  class="ui large form" [formGroup]="loginForm" (ngSubmit)="login()">
+ <form  class="ui large form loginF" [formGroup]="loginForm" (ngSubmit)="login()">
    <div class="field">
      <label>E-Mail</label>
-     <input type="email" id="username" formControlName="username">
+     <input type="email" id="username" class="email" formControlName="username">
      <div *ngIf="loginForm.get('username').invalid &&
      (loginForm.get('username').dirty || loginForm.get('username').touched) &&
      loginForm.get('username').hasError('required')" class="ui negative message">
@@ -16,7 +16,7 @@
    </div>
    <div class="field">
      <label>Passwort</label>
-     <input type="password" formControlName="password">
+     <input type="password" class="password" formControlName="password">
      <div *ngIf="loginForm.get('password').invalid &&
      (loginForm.get('password').dirty || loginForm.get('password').touched)" class="ui negative message">
        Passwort ist verpflichtend </div>
@@ -26,7 +26,7 @@
 </div>
 <div *ngIf="isLoggedIn()">
   <h2>Auf Wiedersehen</h2>
-  <p> Schön, dass Sie den Kuntze Impfservice21 besucht haben und dort Ihre Arbeit erledigt haben. Wir wünschen einen schönen Tag</p>
+  <p> Schön, dass Sie den Kuntze Impfservice21 besucht haben. Wir wünschen einen schönen Tag!</p>
  <button type="button" class="ui button" (click)="logout()">Logout</button>
 </div>
 </div>

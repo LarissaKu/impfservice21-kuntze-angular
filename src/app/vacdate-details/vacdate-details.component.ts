@@ -43,29 +43,6 @@ export class VacdateDetailsComponent implements OnInit {
         .getUser(this.authService.getCurrentUserId())
         .subscribe(vac => (this.user = vac));
     }
-
-    /*
-    if(this.authService.isLoggedIn()){
-      this.im.getUser(this.authService.getCurrentUserId()).subscribe((vac) => {this.user = new User(vac.id, vac.gender, vac.firstname, vac.lastname, vac.birthday, vac.svnr, vac.email, vac.phone, vac.fedstate, vac.zip, vac.city, vac.adress, vac.vaccinated, vac.registered, 'z', vac.admin, vac.vacdate_id)});
-
-      console.log("ID: " + this.user.id);
-    }
-*/
-    /*
-    if(this.authService.isLoggedIn()){
-      this.user = new User(5, 0, "FN", "", new Date, "sn", "m", "p", "s", "z", "c", "a", true, true, 'p', false, []);
-      console.log("ID: " + this.user.id);
-    }
-    */
-
-    /*
-    if(this.authService.isLoggedIn()){
-      this.user = new User(5, 0, "FN", "", new Date, "sn", "m", "p", "s", "z", "c", "a", true, true, 'p', false, []);
-      this.im.getUser(this.authService.getCurrentUserId()).subscribe((vac) => {this.user = new User(vac.id, vac.gender, vac.firstname, vac.lastname, vac.birthday, vac.svnr, vac.email, vac.phone, vac.fedstate, vac.zip, vac.city, vac.adress, vac.vaccinated, vac.registered, 'z', vac.admin, vac.vacdate_id)});
-
-      console.log("ID: " + this.user.id);
-    }
-    */
   }
 
   removeVacdate() {
@@ -89,26 +66,26 @@ export class VacdateDetailsComponent implements OnInit {
   registerUser(user) {
     this.vacdate.users.push(user);
     this.im.registerToVacdate(this.vacdate.id, user.id).subscribe(res => {
-      alert('Sie wurden zum Impftermin angemeldet.');
-      this.router.navigate(['../../home'], {
-        relativeTo: this.route
-      });
+      if (confirm('Sie wurden zum Impftermin angemeldet.')) {
+        this.router.navigate(['../../home'], {
+          relativeTo: this.route
+        });
+        localStorage.setItem('registered', '1');
+      }
     });
   }
 
   editToVaccinated(user) {
     user.vaccinated = true;
-    this.im
-      .editToVaccinated(user)
-      .subscribe(res =>
-        this.router.navigate(['../../vacdate', this.vacdate.id], {
-          relativeTo: this.route
-        })
-      );
+    this.im.editToVaccinated(user).subscribe(res =>
+      this.router.navigate(['../../vacdate', this.vacdate.id], {
+        relativeTo: this.route
+      })
+    );
   }
 
   checkFreePlaces() {
-    if(this.vacdate.users.length < this.vacdate.maxpersons) {
+    if (this.vacdate.users.length < this.vacdate.maxpersons) {
       return true;
     } else {
       return false;
