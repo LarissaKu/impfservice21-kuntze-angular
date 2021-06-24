@@ -25,7 +25,7 @@
     Impftermin buchen
   </button>
 
-  <button *ngIf="authService.isLoggedIn()" class="ui green button" (click)="registerUser(user)">
+  <button *ngIf="authService.isLoggedIn() && !authService.alreadyRegistered() && checkFreePlaces()" class="ui green button" (click)="registerUser(user)">
     Impftermin buchen
   </button>
 

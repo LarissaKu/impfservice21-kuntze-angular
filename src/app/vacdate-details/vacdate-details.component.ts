@@ -105,4 +105,12 @@ export class VacdateDetailsComponent implements OnInit {
         })
       );
   }
+
+  checkFreePlaces() {
+    if(this.vacdate.users.length < this.vacdate.maxpersons) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
