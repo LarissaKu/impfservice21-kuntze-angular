@@ -46,8 +46,9 @@
 
     <div class="form-field">
       <label>Impfort:</label>
+      <!--Finger weg-->
       <select formControlName="vacplace" class="select-vacplace">
-        <option *ngFor="let vacplace of vacplaces" [value]="vacplace.id"
+        <option *ngFor="let vacplace of vacplaces" [value]="vacplace.id" 
                 [selected]="vacplace == vacdate.vacplace">
           {{ vacplace.id }}, {{ vacplace.zip }}, {{ vacplace.city }}, 
           {{ vacplace.adress }}
@@ -96,7 +97,7 @@
         <td *ngIf="place.id == vacForm.value.vacplace">-->
           <tr>
             <td>Impfort: </td>
-          <td>{{ vacForm.value.vacplace.id }}
+          <td>{{ vacForm.get('vacplace').value }}
         </td>
       </tr>
     </table>

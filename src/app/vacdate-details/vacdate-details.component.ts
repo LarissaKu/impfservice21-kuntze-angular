@@ -44,4 +44,8 @@ export class VacdateDetailsComponent implements OnInit {
     }
   }
 
+  registerUser(){
+    
+  }
+
 }

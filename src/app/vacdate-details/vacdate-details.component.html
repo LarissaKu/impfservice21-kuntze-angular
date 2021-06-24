@@ -21,7 +21,11 @@
     Zurück zur Impftermin Übersicht
   </button>
 
-  <button class="ui green button" [routerLink]="'../../login'">
+  <button *ngIf="!authService.isLoggedIn()" class="ui green button" [routerLink]="'../../login'">
+    Impftermin buchen
+  </button>
+
+  <button *ngIf="authService.isLoggedIn()" class="ui green button" (click)="registerUser()">
     Impftermin buchen
   </button>
 
