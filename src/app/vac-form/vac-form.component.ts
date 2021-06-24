@@ -97,7 +97,7 @@ export class VacFormComponent implements OnInit {
     const updatedVacdate: Vacdate = VacdateFactory.fromObject(
       this.vacForm.value
     );
-    console.log(updatedVacdate);
+    //console.log(updatedVacdate);
     console.log("bääääh"+this.vacForm.value.vacplace);
 
     updatedVacdate.vacplace_id = this.vacForm.value.vacplace;
@@ -109,9 +109,9 @@ export class VacFormComponent implements OnInit {
       updatedVacdate.users = [];
     }
     //TODO
-    console.log("user"+this.vacdate.user_id);
+    //console.log("user"+this.vacdate.user_id);
 
-    console.log(updatedVacdate);
+    //console.log(updatedVacdate);
 
     if (this.isUpdatingVac) {
       this.vr.update(updatedVacdate).subscribe(res => {

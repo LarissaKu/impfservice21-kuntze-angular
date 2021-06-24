@@ -66,12 +66,12 @@ export class AuthenticationService {
   }
 
   public alreadyRegistered() {
-    console.log("Registered: " + localStorage.getItem('registered'));
+    //console.log("Registered: " + localStorage.getItem('registered'));
     return localStorage.getItem('registered') == "1";
   }
 
   public isAdmin() {
-    console.log(localStorage.getItem('admin'));
+    //console.log(localStorage.getItem('admin'));
     return localStorage.getItem('admin')  == "1";
   }
 

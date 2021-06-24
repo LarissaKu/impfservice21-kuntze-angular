@@ -51,7 +51,7 @@ export class VacRegistrationService {
   }
 
   getAllPlaces():Observable<any>{
-    return this.http.get(`${this.api}/vaccinationplaces`)
+    return this.http.get(`${this.api}/vacplaces`)
       .pipe(retry(3)).pipe(catchError(this.errorHandler));
   }
 

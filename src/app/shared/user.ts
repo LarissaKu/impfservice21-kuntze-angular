@@ -19,6 +19,6 @@ export class User {
     public registered: boolean,
     private password: string,
     public admin: boolean,
-    public vacdate_id?: Vacdate[]) {
+    public vacdate_id: Vacdate[]) {
   }
 }

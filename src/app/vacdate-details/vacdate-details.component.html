@@ -25,7 +25,7 @@
     Impftermin buchen
   </button>
 
-  <button *ngIf="authService.isLoggedIn()" class="ui green button" (click)="registerUser()">
+  <button *ngIf="authService.isLoggedIn()" class="ui green button" (click)="registerUser(user)">
     Impftermin buchen
   </button>
 
@@ -38,3 +38,22 @@
 <i class="write icon"></i> Impftermin bearbeiten
 </a>
 </div>
+
+<hr>
+
+<div class="details-users space" *ngIf="authService.isLoggedIn() && checkUser() && authService.isAdmin()">
+    <h3>Angemeldete Personen</h3>
+    <p *ngIf="vacdate.users.length == 0">Es haben sich noch keine Personen zu diesem Impftermin angemeldet!</p>
+    <div class="details-all_users">
+      <div *ngFor="let user of vacdate.users" class="details-users_user">
+        <p class="details-user_name">{{ user.firstname }} {{ user.lastname }}</p>
+        <p>{{ user.gender }}</p>
+        <p>Geb.: {{ user.birthday }}</p>
+        <p>SVNR: {{ user.svnr }}</p>
+        <p>E-Mail: {{ user.email }}</p>
+        <p>Tel.: {{ user.phone }}</p>
+        <p *ngIf="user.vaccinated" class="details-user_vaccinated">Geimpft</p>
+        <p *ngIf="!user.vaccinated" class="details-user_not_vaccinated">Nicht geimpft</p>
+        <button *ngIf="!user.vaccinated" (click)="editToVaccinated(user)" class="details-user_is_vaccinated">Impfung durchgeführt</button>
+      </div>
+    </div>

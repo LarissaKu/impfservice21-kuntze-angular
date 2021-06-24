@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User, Vacdate } from './vacdate';
+//import { User } from './user';
 import { Vacplace } from './vacplace';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -27,7 +28,7 @@ export class VacServiceService {
   }
 
   getSingle(id: number): Observable<Vacdate> {
-    console.log(id);
+    //console.log(id);
     return this.http
       .get<Vacdate>(`${this.api}/vacdates/${id}`)
       .pipe(retry(3))
@@ -41,9 +42,12 @@ export class VacServiceService {
       .pipe(catchError(this.errorHandler));
   }
 
-  getUser(id : number) : Observable<User> {
-    return this.http.get(`${this.api}/user/${id}`)
-      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+  getUser(id: number): Observable<User> {
+    console.log(`${this.api}/user/${id}`);
+    return this.http
+      .get(`${this.api}/user/${id}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
   }
 
   create(vacdate: Vacdate): Observable<any> {
@@ -52,14 +56,14 @@ export class VacServiceService {
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
-  
+
   update(vacdate: Vacdate): Observable<any> {
     return this.http
       .put(`${this.api}/vacdate/${vacdate.id}`, vacdate)
       .pipe(retry(3))
       .pipe(catchError(this.errorHandler));
   }
-  
+
   remove(id: string): Observable<any> {
     return this.http
       .delete(`${this.api}/vacdate/${id}`)
@@ -67,24 +71,28 @@ export class VacServiceService {
       .pipe(catchError(this.errorHandler));
   }
 
-  check(id:number): Observable<Boolean>{
-    return this.http.get<Boolean>(`${this.api}/vacdates/checkId/${id}`).pipe(retry(3))
-    .pipe(catchError(this.errorHandler));
+  check(id: number): Observable<Boolean> {
+    return this.http
+      .get<Boolean>(`${this.api}/vacdates/checkId/${id}`)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
   }
 
   editToVaccinated(user: User): Observable<any> {
-    return this.http.put(`${this.api}/vacdate/user/${user.id}`, user)
-      .pipe(retry(3)).pipe(catchError(this.errorHandler));
+    return this.http
+      .put(`${this.api}/vacdate/user/${user.id}`, user)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
   }
 
-  /*registerUser(vacdate: VacdateFactory,  userid: number): Observable<any> {
-    let user = '{ "id": '+userid+'}';
+  registerToVacdate(vacdate: VacdateFactory, userid: number): Observable<any> {
+    let user = '{ "id": ' + userid + '}';
     let userJson = JSON.parse(user);
-    return this.http.put(`${this.api}/vaccination/registration/${vacdate.id}`, userJson)
-      .pipe(retry(3)).pipe(catchError(this.errorHandler));
-  }*/
-
-
+    return this.http
+      .put(`${this.api}/vacdate/registration/${vacdate}`, userJson)
+      .pipe(retry(3))
+      .pipe(catchError(this.errorHandler));
+  }
 
   private errorHandler(error: Error | any): Observable<any> {
     return throwError(error);
