@@ -46,14 +46,14 @@
     <p *ngIf="vacdate.users.length == 0">Es haben sich noch keine Personen zu diesem Impftermin angemeldet!</p>
     <div class="details-all_users">
       <div *ngFor="let user of vacdate.users" class="details-users_user">
-        <p class="details-user_name">{{ user.firstname }} {{ user.lastname }}</p>
-        <p>{{ user.gender }}</p>
-        <p>Geb.: {{ user.birthday }}</p>
+        <p class="details-user_name"><strong>{{ user.firstname }} {{ user.lastname }} | {{ user.gender }}</strong></p>
+        <p>Geb.: {{ user.birthday | date:'longDate'}}</p>
         <p>SVNR: {{ user.svnr }}</p>
         <p>E-Mail: {{ user.email }}</p>
         <p>Tel.: {{ user.phone }}</p>
-        <p *ngIf="user.vaccinated" class="details-user_vaccinated">Geimpft</p>
-        <p *ngIf="!user.vaccinated" class="details-user_not_vaccinated">Nicht geimpft</p>
+        <p *ngIf="user.vaccinated" class="vaccinated">Geimpft</p>
+        <p *ngIf="!user.vaccinated" class="not_vaccinated">Nicht geimpft</p>
         <button *ngIf="!user.vaccinated" (click)="editToVaccinated(user)" class="details-user_is_vaccinated">Impfung durchgeführt</button>
+        <br>
       </div>
     </div>

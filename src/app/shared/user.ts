@@ -4,7 +4,7 @@ export class User {
 
   constructor(
     public id: number,
-    public gender: number,
+    public gender: string,
     public firstname: string,
     public lastname: string,
     public birthday: Date,

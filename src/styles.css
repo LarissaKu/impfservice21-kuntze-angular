@@ -32,3 +32,20 @@ input, .select-vacplace, button{
   background-color: lightgray;
   border-radius: 0.4em;
 }
+
+.details-all_users{
+  display: flex;
+  float: left;
+}
+
+.details-users_user{
+  margin-right: 3em;
+}
+
+.vaccinated{
+  color: green;
+}
+
+.not_vaccinated{
+  color: coral;
+}

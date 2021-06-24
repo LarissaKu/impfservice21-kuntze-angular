@@ -100,7 +100,7 @@ export class VacdateDetailsComponent implements OnInit {
     this.im
       .editToVaccinated(user)
       .subscribe(res =>
-        this.router.navigate(['../vacdate', this.vacdate.id], {
+        this.router.navigate(['../../vacdate', this.vacdate.id], {
           relativeTo: this.route
         })
       );
