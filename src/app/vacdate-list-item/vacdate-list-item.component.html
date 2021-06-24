@@ -1,8 +1,9 @@
-<div class="content">
-  <h2>Impfung Nr. {{vacdate.id}}</h2>
-<p class="vacday"><strong>Datum:</strong> {{ vacdate.vacday | date:'longDate'}}</p>
-<p class="start"><strong>Zeit:</strong> {{ vacdate.start }} - {{ vacdate.end }} </p>
+<div class="content {{!checkFreePlaces() ? 'novacdatefree' : 'free'}}">
+  <h2 class="{{!checkFreePlaces() ? 'novacdatefree' : 'free'}}">Impfung Nr. {{vacdate.id}}</h2>
+<p class="vacday {{!checkFreePlaces() ? 'novacdatefree' : 'free'}}"><strong>Datum:</strong> {{ vacdate.vacday | date:'longDate'}}</p>
+<p class="start {{!checkFreePlaces() ? 'novacdatefree' : 'free'}}"><strong>Zeit:</strong> {{ vacdate.start }} - {{ vacdate.end }} </p>
 
-<p class="vacplace"><strong>Impfort:</strong> {{vacdate.vacplace.zip}} {{ vacdate.vacplace.city}} </p>
+<p class="vacplace {{!checkFreePlaces() ? 'novacdatefree' : 'free'}}"><strong>Impfort:</strong> {{vacdate.vacplace.zip}} {{ vacdate.vacplace.city}} </p>
+<p *ngIf="!checkFreePlaces()" class="novacdatefree">Es ist kein Termin mehr frei.</p>
 
 </div>

@@ -42,10 +42,14 @@ input, .select-vacplace, button{
   margin-right: 3em;
 }
 
-.vaccinated{
+.vaccinated, .alreadyReg{
   color: green;
 }
 
 .not_vaccinated{
   color: coral;
+}
+
+.novacdatefree{
+  color: gray;
 }

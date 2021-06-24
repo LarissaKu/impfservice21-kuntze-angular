@@ -1,4 +1,4 @@
-<div class="content space" *ngIf="vacdate">
+<div class="content space {{!checkFreePlaces() ?'novacdatefree':'free'}}" *ngIf="vacdate">
   <h2>Impfung Nr. {{vacdate.id}}</h2>
   <p class="vacday">
     <strong>Datum:</strong> {{ vacdate.vacday | date:'longDate'}}
@@ -9,13 +9,9 @@
   <p class="vaccine"><strong>Impfstoff:</strong> {{ vacdate.vaccine }}</p>
   <p class="vacplace"><strong>Impfort:</strong>
    {{vacdate.vacplace.adress}},  {{vacdate.vacplace.zip}} {{vacdate.vacplace.city}}
-
-  <!--<p class="vacplace" *ngFor="let vacpc of vacplace">
-    <span>{{vacpc.id}}, {{vacdate.vacplace_id}} ,{{vacpc.adress}}</span>
-    <span *ngIf="vacpc.id == vacdate.vacplace_id.id"><strong>Impfort:</strong> {{vacdate.vacplace_id}},
-    {{vacplace.zip}} {{vacplace.city}}
-    </span>-->
   </p>
+
+  <h3 *ngIf="!checkFreePlaces()" class="novacdatefree">Es sind leider alle Plätze vergeben.</h3>
 
   <button class="ui blue button" [routerLink]="'../../vacdates'">
     Zurück zur Impftermin Übersicht

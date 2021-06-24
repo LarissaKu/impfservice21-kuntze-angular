@@ -7,7 +7,7 @@
 
   <strong>Happy impfen</strong><br><br>
 
-  <div *ngIf="authService.alreadyRegistered()">Sie sind bereits zu einer Impfung angemeldet.<br><br></div>
+  <h2 *ngIf="authService.alreadyRegistered()" class="alreadyReg">Sie sind bereits zu einer Impfung angemeldet.<br><br></h2>
 
   <a routerLink="../vacdates" class="ui red button">Impftermine ansehen</a>
 
