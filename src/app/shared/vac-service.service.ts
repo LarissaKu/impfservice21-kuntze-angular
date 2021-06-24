@@ -85,8 +85,8 @@ export class VacServiceService {
       .pipe(catchError(this.errorHandler));
   }
 
-  registerToVacdate(vacdate: VacdateFactory, userid: number): Observable<any> {
-    let user = '{ "id": ' + userid + '}';
+  registerToVacdate(vacdate: string, userid: number): Observable<any> {
+    let user = '{ "user_id": ' + userid + '}';
     let userJson = JSON.parse(user);
     return this.http
       .put(`${this.api}/vacdate/registration/${vacdate}`, userJson)

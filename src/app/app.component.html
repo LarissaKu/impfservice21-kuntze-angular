@@ -2,7 +2,7 @@
   <a routerLink="home" routerLinkActive="active" class="item">Home</a>
   <a routerLink="vacdates" routerLinkActive="active" class="item">Impftermine</a>
   <!--<a routerLink="vacplace" routerLinkActive="active" class="item">Impforte</a>-->
-  <a *ngIf ="isLoggedIn() && isAdmin()" routerLink="admin" routerLinkActive="active" class="item">Adminibereich</a>
+  <a *ngIf ="isLoggedIn() && isAdmin()" routerLink="admin" routerLinkActive="active" class="item">Adminbereich</a>
   <a routerLink="login" routerLinkActive="active" class="item">{{getLoginLabel()}}</a>
 </div>
   <router-outlet></router-outlet>

@@ -89,7 +89,7 @@ export class VacdateDetailsComponent implements OnInit {
   registerUser(user) {
     this.vacdate.users.push(user);
     this.im.registerToVacdate(this.vacdate.id, user.id).subscribe(res => {
-      this.router.navigate(['../../login'], {
+      this.router.navigate(['../../home'], {
         relativeTo: this.route
       });
     });
